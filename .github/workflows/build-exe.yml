@@ -3,7 +3,7 @@ name: Build Windows EXE
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:  # Allows manual triggering
+  workflow_dispatch:
 
 jobs:
   build:
@@ -28,7 +28,7 @@ jobs:
         pyinstaller --onefile tsp_vrp.py
         
     - name: Upload executable
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2  # Changed from v3 to v2
       with:
         name: windows-executable
         path: dist/*.exe
